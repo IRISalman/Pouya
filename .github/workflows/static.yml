@@ -29,8 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # تغییر مهم اینجاست: رمز رو به پروسه بیلد تزریق کردیم
       - name: Build
         run: npm run build
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
